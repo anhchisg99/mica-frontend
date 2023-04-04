@@ -238,11 +238,11 @@ export default {
       
 
 
-      if (!this.errors.length && !this.errorName.length && !this.errorAddress.length) {
+      if (!this.errors.length && !this.errorName.length && !this.errorAddress.length  ) {
         return true;
       }
       // this.errors = []
-      e.preventDefault();
+      e.preventDefault(); 
     },
     async makeOrderAndremoveAllFromCart() {
       this.errors = [];

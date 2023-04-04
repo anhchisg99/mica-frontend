@@ -30,7 +30,22 @@ export default createStore({
             return sum
         },
         cartItems: state => {
+            console.log(' có cart')
             return state.cart
+        },
+        checkIteminCart: state => (product) =>{
+            console.log(`this is product ${product._id}`)
+            for(let i = 0 ;i< state.cart.length;i++){
+                if(product._id === i._id){
+                    count = count +1
+                }
+
+            }
+            if(count === 0){
+                return 0
+            }else{
+                return 1
+            }
         },
         isItem: state => {
             if (state.cart.length === 0) {

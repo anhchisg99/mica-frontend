@@ -30,7 +30,7 @@
               <a @click="gotoCart()" class="btn">thanh toán</a>
             </div>
             <div class="cart-btn">
-              <a class="btn" @click="addToCart()">thêm vào giỏ 1</a>
+              <a class="btn" @click="addToCart()">thêm vào giỏ </a>
             </div>
           </div>
         </div>
@@ -45,21 +45,41 @@ import { mapMutations, mapState } from "vuex";
 export default {
   name: "Product",
   props: ["product"],
+
+  computed: {
+    ...mapState(['cart'])
+  },
   methods: {
+    
     async addToCart() {
       // let { quantity } = this.inventory;
 
       this.$store.commit("openPopup");
       this.$store.commit("addToCart", this.product);
     },
-    ...mapMutations(["getProduct"]),
+    
+    
     async gotoCart() {
-      this.$router.push({ path: "/cart" });
+      if (this.checkIteminCart) {
+        this.$router.push({ path: "/cart" });
+        
+      } else {
+        let isItemInCart = this.cart.find(i=>i._id === this.product._id)
+        if(isItemInCart){
+        this.$router.push({ path: "/cart" });
+          
+        }else{
+          this.$store.commit("openPopup");
+          this.$store.commit("addToCart", this.product);
+          this.$router.push({ path: "/cart" });
+        }
+       
+
+      }
+      
     },
   },
-  computed: {
-    // ...mapState(['totalQuantity'])
-  },
+  
 };
 </script>
 
