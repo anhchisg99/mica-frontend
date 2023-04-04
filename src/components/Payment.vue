@@ -28,25 +28,33 @@
               <!-- customer_name -->
               <div class="payment-email payment-field">
                 <label class="field__label field__label--visible" for="checkout_email">Name</label>
-                <input v-model="name" type="text" 
-                placeholder="Họ và Tên" class="field__input" size="30"  >
-               <!-- show error -->
-                <p v-if="errors.length">Vui Lòng Nhập Đầy Đủ Thông Tin ...</p>
+                <input v-model="name" type="text" placeholder="Họ và Tên" class="field__input" size="30">
+                <!-- show error -->
+                <div v-if="errorName.length" class="payment-error">
+                  <p>Vui lòng nhập tên ...</p>
+                </div>
               </div>
               <div class="payment-email payment-field">
                 <label class="field__label field__label--visible" for="checkout_email">Phone</label>
-                <input v-model="phone" type="text" 
-                placeholder="Số Điện Thoại" @input="acceptNumber" class="field__input" size="30"  >
-               <!-- show error -->
-                <p v-if="errors.length">Vui Lòng Nhập Đầy Đủ Thông Tin ...</p>
+                <input v-model="phone" type="text" placeholder="Số Điện Thoại" @input="acceptNumber" class="field__input"
+                  size="30">
+                <!-- show error -->
+                <div v-if="errors.length" class="payment-error">
+                  <p v-for="(error, index) in errors" :key="index">
+                    {{ error }}
+                  </p>
+                </div>
+
+
+
               </div>
             </div>
             <div class="payment-address">
               <h3 class="payment-heading">Địa Chỉ Giao Hàng</h3>
               <div class="payment-email payment-field">
                 <label class="field__label field__label--visible" for="checkout_email">Full Address</label>
-                <input v-model="full_address" placeholder="Địa Chỉ Cụ Thể (tên đường/hẻm)" autocapitalize="off" spellcheck="false"
-                  autocomplete="shipping email" data-shopify-pay-handle="true" data-autofocus="true"
+                <input v-model="full_address" placeholder="Địa Chỉ Cụ Thể (tên đường/hẻm)" autocapitalize="off"
+                  spellcheck="false" autocomplete="shipping email" data-shopify-pay-handle="true" data-autofocus="true"
                   data-backup="customer_email" aria-describedby="checkout-context-step-one" aria-required="true"
                   class="field__input" size="30" type="email" name="checkout[email]" id="checkout_email" />
               </div>
@@ -67,6 +75,9 @@
                   <!-- <p v-if="errors.length">entering phone ...</p> -->
                 </div>
               </div>
+              <div v-if="errorAddress.length" class="payment-error">
+                <p>Vui lòng nhập đầy đủ thông tin địa chỉ ...</p>
+              </div>
               <div class="payment-button">
                 <a href="">
                   <span>
@@ -75,10 +86,13 @@
                   <router-link to="/cart"> <span> Quay về giỏ hàng</span></router-link>
                 </a>
                 <button @click="makeOrderAndremoveAllFromCart()">
-                  TIẾN HÀNH ĐẶT HÀNG  
+                  TIẾN HÀNH ĐẶT HÀNG
                 </button>
               </div>
+              <!-- show error -->
+              
             </div>
+
           </div>
         </div>
         <div class="payment-right">
@@ -143,12 +157,14 @@ export default {
     return {
       email: "",
       phone: "",
-      name:"",
+      name: "",
       errorMessage: "",
       street: "",
       city: "",
-      full_address:'',
+      full_address: '',
       errors: [],
+      errorName: [],
+      errorAddress: [],
       value: ''
       // quotes:""
     };
@@ -156,7 +172,7 @@ export default {
   computed: {
     ...mapGetters(["cartItems", "subTotal",]),
     ...mapState(["quotes", "isPayment"]),
-    
+
   },
   methods: {
     isRequired(value) {
@@ -167,38 +183,62 @@ export default {
       return true;
     },
     acceptNumber() {
-        var x = this.phone.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-        this.phone = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-      },
+      var x = this.phone.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+      this.phone = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+    },
     validEmail: function (email) {
       var re =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
     },
     validPhone: function (phone) {
-      var re = /^[789]\d{9}$/;
-      return re.test(phone);
+      // var re = /^[789]\d{9}$/;
+      // return re.test(phone);
+
+      return phone.match(/\d/g).length === 10;
     },
-    checkForm() {
-      if (!this.phone) {
-        this.errors.push("Phone required.");
-      }
+    checkName() {
       if (!this.name) {
-        this.errors.push("Full Address required.");
+        this.errorName.push("Full name required.");
+      }
+    },
+    // checkAddress() {
+    //   if (!this.full_address) {
+    //     this.errorAddress.push("Full Address required.");
+    //   }
+    //   if (!this.street) {
+    //     this.errorAddress.push("Street required.");
+    //   }
+    //   if (!this.full_address) {
+    //     this.errorAddress.push("Street required.");
+    //   }
+    // },
+    checkForm() {
+      if (!this.name) {
+
+        this.errorName.push("Full name required.");
+      }
+
+      if (!this.phone) {
+
+        this.errors.push("Vui lòng nhập Số điện thoại");
+      }
+      if (!this.validPhone(this.phone)) {
+        this.errors.push("Vui lòng nhập đúng Số điện thoại");
       }
       if (!this.full_address) {
-        this.errors.push("Full Address required.");
+        this.errorAddress.push("Full Address required.");
       }
       if (!this.street) {
-        this.errors.push("Street required.");
+        this.errorAddress.push("Street required.");
       }
-      //   if(!this.validPhone(this.phone)){
-      //     this.errors.push("Valid phone required");
-      //   }
-      // if (!this.validPhone(this.phone)) {
-      //   this.errors.push("Valid Phone required.");
-      // }
-      if (!this.errors.length) {
+      if (!this.city) {
+        this.errorAddress.push("City required.");
+      }
+      
+
+
+      if (!this.errors.length && !this.errorName.length && !this.errorAddress.length) {
         return true;
       }
       // this.errors = []
@@ -206,6 +246,8 @@ export default {
     },
     async makeOrderAndremoveAllFromCart() {
       this.errors = [];
+      this.errorName = [];
+      this.errorAddress = [];
       let isOk = this.checkForm();
       console.log("capture 1");
       if (isOk) {
@@ -231,9 +273,9 @@ export default {
       const isSuccess = await this.$store.dispatch("makeOrder", {
         phone: this.phone,
         city: this.city,
-        name:this.name,
+        name: this.name,
         street: this.street,
-        full_address:this.full_address,
+        full_address: this.full_address,
         cart: this.cartItems,
         quotes: this.quotes
       });
