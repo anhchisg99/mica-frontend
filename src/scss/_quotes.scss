@@ -1,0 +1,35 @@
+.quotes{
+    padding:100px 0px;
+    background: $quotes-color;
+    color:white;
+    &-container{
+        max-width: 1110px;
+        margin:auto;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px ;
+
+        
+    }
+    &-heading{
+        margin-bottom:74px;
+    }
+    &-content{
+        margin-bottom:34px;
+        font-size:2em;  
+        line-height: 180%;
+
+    }
+}
+
+@include forMobie{
+    .quotes{
+        &-container{
+            // font-size:1em;
+        }
+        &-content{
+            font-size: 1.2em;
+        }
+    }
+    
+}

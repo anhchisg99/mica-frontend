@@ -1,0 +1,17 @@
+.theme{
+    background: $primary-color;
+    padding:17px 50px;   
+
+    &-container{
+        display:flex;
+
+        justify-content: space-between;
+        text-transform: uppercase;
+    }
+}
+
+@include forMobie{
+    .theme{
+        display: none;
+    }
+}

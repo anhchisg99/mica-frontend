@@ -1,0 +1,33 @@
+.features{
+    &-container{
+        max-width: 1100px;
+        margin:auto;
+    }
+    &-heading{
+        margin:64px 0px;
+        text-align: center;
+        font-size: 2.5em;
+        line-height: 2.5em;
+    }
+   ul{
+    // max-width: 490px;
+    li{
+        font-weight: 300;
+        margin:15px 0px;
+        font-size:17px;
+        line-height: 1.6;
+    }
+   }
+}
+
+@include forMobie{
+    .features{
+        padding:23px;
+        &-container{
+
+        }
+        &-heading{
+            margin:28px;
+        }
+    }
+}

@@ -1,0 +1,122 @@
+<template>
+  <div class="">
+    <Popup ref="Popup" v-on:changeQuotes="changeQuotes" />
+    <div v-if="isItem">
+    <section class="empty-cart">
+      <div class="empty-cart-container">
+        <div class="empty-cart-heading">
+          <h2>GIỎ HÀNG</h2>
+        </div>
+      </div>
+    </section>
+    <section class="cart">
+      <div class="cart-container">
+        <div class="cart-left">
+          <div class="cart-heading">Cart Summary</div>
+          <div class="cart-table">
+            <table style="width: 100%">
+              <tr class="cart-tr">
+                <th style="width: 50%" class="cart-th">Sản Phẩm</th>
+                <th class="cart-th">Giá</th>
+                <th class="cart-th">Số Lượng</th>
+                <th class="cart-th">Tổng Tiền</th>
+              </tr>
+              <tr v-for="(item, idx) in cartItems" :key="idx" :item="item">
+                <!-- <span><ion-icon name="close-outline"></ion-icon></span> -->
+                <td class="cart-td cart-icon-delete">
+                  <!-- <span><ion-icon name="close-outl ine"></ion-icon></span> -->
+                  <a @click="deleteItemFromCart(item)"><ion-icon name="close-outline"></ion-icon></a>
+                  <img :src="item.image" alt="" />
+                  <span>{{ item.name }}</span>
+                </td>
+                <td class="cart-td">${{ item.price }}</td>
+                <td class="cart-td">{{ item.quantity }}</td>
+                <td class="cart-td">${{ item.price }}</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="cart-td cart-coupon">
+                  <!-- Alfreds Futterkiste -->
+
+                  {{ popup_text }}
+                </td>
+
+                <td colspan="3" update-button class="update-button">
+                  <a class="btn" @click="turnonPopup()">Nhập Quotess</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="cart-right">
+          <div class="cart-heading">Cart Totals</div>
+          <div class="cart-table">
+            <table style="width: 100%">
+              <tr>
+                <th>Tạm Tính</th>
+                <th>${{ subTotal }}</th>
+              </tr>
+              <tr class="cart-total-tr">
+                <td>Tổng Tiền</td>
+                <td>${{ subTotal }}</td>
+              </tr>
+              <tr>
+                <td colspan="1">
+                  <a @click="gotoPayment()" class="btn cart-total-btn">proceed to checkout</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+    <EmptyCartVue v-else/>
+
+  </div>
+</template>
+
+<script>
+import Popup from './Popup.vue'
+import EmptyCartVue from './EmptyCart.vue'
+import { mapGetters, mapAction, mapMutations } from "vuex";
+
+export default {
+  name: "IndexCart",
+  data() {
+    return {
+      popup_text: ''
+    }
+  },
+  components: {
+    EmptyCartVue,
+
+    Popup
+  },
+  computed: {
+    ...mapGetters(["cartItems", "subTotal","isItem"]),
+    // testPopup(){
+    //   return this.$refs.Popup.text_popup
+
+    // }
+  },
+  methods: {
+    deleteItemFromCart(item) {
+
+      this.$store.commit('deleteItemFromCart', item)
+    },
+    gotoPayment() {
+      this.$store.commit('getQuotes', this.popup_text)
+      this.$router.push({ path: "/payment" });
+    },
+    turnonPopup() {
+      console.log(this.$refs.Popup.text_popup)
+      return this.$refs.Popup.isShow = true
+    },
+    changeQuotes(data) {
+      return this.popup_text = data
+    }
+  },
+};
+</script>
+
+<style></style>

@@ -1,0 +1,74 @@
+.quotespopup {
+  max-width: 600px;
+  position: fixed;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  background: #e9a694;
+  // padding: 44px;
+  width: 100%;
+  visibility: hidden;
+  height: 25 0px;
+
+  &-container {
+    padding: 54px 55px;
+    // border: 1px solid red;
+    // width: 100%  ;
+    text-align: center;
+    color: #16236f;
+  }
+  &-heading {
+    font-size: 2.5em;
+    line-height: 180%;
+    margin-bottom: 30px;
+  }
+  &-input {
+    // max-width: 500px;
+    max-width: inherit;
+    input {
+      padding: 15px 20px;
+      width: 100%;
+      border: 2px solid black;
+    }
+    margin-bottom: 30px;
+  }
+  &-button {
+    max-width: inherit;
+    a {
+      display: inline-block;
+      text-align: center;
+      background: #16236f;
+      // width:500px;
+      width: 100%;
+      padding: 15px 0px;
+      color: white;
+    }
+  }
+}
+
+.show {
+  visibility: visible;
+}
+
+@include forMobie {
+  .quotespopup {
+    max-width: 450px;
+    &-container {
+      padding: 35px 10px;
+    }
+    &-heading {
+      margin-bottom: 10px;
+    }
+    &-input {
+      max-width: 90%;
+      input {
+       
+        padding: 10px 0px;
+      }
+    }
+    &-button {
+     
+      max-width: 90%;
+    }
+  }
+}

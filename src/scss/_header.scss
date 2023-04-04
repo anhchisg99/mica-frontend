@@ -1,0 +1,116 @@
+.header {
+  &-container {
+    margin: 0px 43px;
+
+    padding: 37px;
+    text-align: center;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    // border:1px solid red;
+  }
+  &-icon {
+    position: relative;
+  }
+}
+.bell-icon {
+  position: relative;
+}
+.bell-icon .bell-icon-quantity {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  // display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  //   border: 1px solid red;
+  background-color: $product-btn-line-color;
+  color: white;
+  font-size:0.5em
+}
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 170px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 3px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 40%;
+  margin-left: -80px;
+  font-size:1.1em;
+
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: -15%;
+  font-size:1em;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.popuptext{
+  font-size:0.5em !important;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@include forMobie{
+  .header{
+    // margin:0 10px;
+    &-container{
+        // border:1px solid red;
+        padding:37px 0px;
+        gap:20px;
+    }
+    &-icon{
+      
+    }
+  }
+}

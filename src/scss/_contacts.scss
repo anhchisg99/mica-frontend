@@ -1,0 +1,46 @@
+.contacts{
+    padding:85px 0px;
+background: $contacts-color;
+    &-container{
+        max-width: 1300px;
+        margin:auto;
+        display: flex;
+        text-transform: uppercase;
+        color:$color-text;
+    }
+    &-col{
+        width:33%;
+        ul{
+            font-size:1em;
+            letter-spacing: 2.5px;
+            line-height: 180%;
+        }
+        
+    }
+    &-heading{
+        font-size:1.4em;
+        line-height: 180%;
+        // letter-spacing: 2.5px;
+    }
+    &-icon{
+        ion-icon{
+            font-size:1.5em;
+        }
+        display: flex;
+        align-items: center;
+        gap:13px;
+        font-size: 1em;
+    }
+    
+}
+
+@include forMobie{
+    .contacts{
+        padding: 35px 20px;
+        &-container{
+            flex-direction: column;
+            gap:30px;
+        }
+
+    }
+}

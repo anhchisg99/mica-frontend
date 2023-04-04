@@ -1,0 +1,17 @@
+.footer{
+    
+    padding:35px 0px;
+    &-container{
+
+        max-width: 1300px;
+        margin:auto;
+        font-size: 0.8em;
+    }
+   
+}
+
+@include forMobie{
+    .footer{
+        text-align: center;
+    }
+}
