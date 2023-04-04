@@ -23,6 +23,7 @@ background: $contacts-color;
         // letter-spacing: 2.5px;
     }
     &-icon{
+    //    border:1px solid red;
         ion-icon{
             font-size:1.5em;
         }
@@ -30,7 +31,9 @@ background: $contacts-color;
         align-items: center;
         gap:13px;
         font-size: 1em;
+        max-width:180px;
     }
+    
     
 }
 
