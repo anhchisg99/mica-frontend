@@ -3,15 +3,18 @@
     <div class="carousel-main">
       <div class="carousel-container">
         <div class="carousel-left">
-          <div class="carousel-desc">
-            <p>những kỉ niệm đẹp trong từng khung hình</p>
-            <p>
-              Easy to use, fully customizable WordPress themes for heart–driven
-              creatives and small businesses.
-            </p>
-          </div>
-          <div class="carousel-button">
-            <a @click="addToCart()" class="btn" > THÊM VÀO GIỎ </a>
+          <div class="carousel-content">
+
+            <div class="carousel-desc">
+              <p>những kỉ niệm đẹp trong từng khung hình</p>
+              <p>
+                Easy to use, fully customizable WordPress themes for heart–driven
+                creatives and small businesses.
+              </p>
+            </div>
+            <div class="carousel-button">
+              <a @click="addToCart()" class="btn" > THÊM VÀO GIỎ </a>
+            </div>
           </div>
         </div>
         <div class="carousel-right">

@@ -147,7 +147,7 @@
 <script>
 import ProductTable from "./ProductTable.vue";
 
-import { mapGetters, mapAction, mapState } from "vuex";
+import { mapGetters, mapAction, mapState,mapMutations} from "vuex";
 export default {
   name: "Payment",
   components: {
@@ -171,10 +171,11 @@ export default {
   },
   computed: {
     ...mapGetters(["cartItems", "subTotal",]),
-    ...mapState(["quotes", "isPayment"]),
+    ...mapState(["quotes", "isPayment","secure_url"]),
 
   },
   methods: {
+    ...mapMutations(["releasedUploadImg"]),
     isRequired(value) {
       if (!value) {
         return "this field is required";
@@ -255,7 +256,9 @@ export default {
         await this.removeAllFromCart();
         this.$store.commit('closePopup')
         this.$store.commit('isPayment')
+        this.$store.commit('relasedUploadImg')
         this.$router.push("/success");
+
 
         // this.$router.push("/success");
       }
@@ -277,7 +280,7 @@ export default {
         street: this.street,
         full_address: this.full_address,
         cart: this.cartItems,
-        quotes: this.quotes
+        quotes: this.secure_url
       });
       return isSuccess;
       // this.$router.push("Success");

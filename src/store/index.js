@@ -13,6 +13,7 @@ export default createStore({
         order: null,
         isPopup:false,
         mainProduct:'',
+        secure_url:'',
         quotes:'',
         isPayment:false,
     },
@@ -70,6 +71,14 @@ export default createStore({
             state.product = data.data
 
         },
+        uploadImg(state,data){
+
+            state.secure_url = data
+        },
+        releasedUploadImg(state,data){
+            state.secure_url = ''
+        },
+            
         isPayment(state,data){
 
             state.isPayment = true
