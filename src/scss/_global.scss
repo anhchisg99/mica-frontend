@@ -36,7 +36,22 @@
   padding: 15px 32px;
   text-transform: uppercase;
   letter-spacing: 2px;
+  cursor: pointer;
+}
+body {
+  // loader
+  // opacity:0.5;
+  position: relative;
 }
 a {
   color: black;
+}
+
+.Disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }

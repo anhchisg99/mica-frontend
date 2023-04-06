@@ -16,10 +16,14 @@ export default {
     Categories,
     Quotes
   },
+  data(){
+    return {
+    }
+  },
   computed:{
     ...mapState(['products'])
   },
-  mounted(){
+  async mounted(){
     this.$store.dispatch('getProduct')
     // this.$store.commit('getProduct')
   },

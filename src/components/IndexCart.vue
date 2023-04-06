@@ -8,6 +8,10 @@
             <h2>GIỎ HÀNG</h2>
           </div>
         </div>
+        <!-- popup loader -->
+        <div v-if="loadingState">
+          <Spinner />
+        </div>
       </section>
       <section class="cart">
         <div class="cart-container">
@@ -36,7 +40,7 @@
                 <tr>
                   <td colspan="2" class="cart-td cart-coupon">
                     <!-- Alfreds Futterkiste -->
-                    
+
                     <img v-if="secure_url" :src="secure_url" alt="" />
                     <!-- {{ popup_text }} -->
                   </td>
@@ -62,7 +66,8 @@
                 </tr>
                 <tr>
                   <td colspan="1">
-                    <a @click="gotoPayment()" class="btn cart-total-btn">proceed to checkout</a>
+                    <a @click="gotoPayment()" :class="{ Disabled: isDisabled }" class="btn cart-total-btn">proceed to
+                      checkout</a>
                   </td>
                 </tr>
               </table>
@@ -79,19 +84,25 @@
 <script>
 import Popup from './Popup.vue'
 import EmptyCartVue from './EmptyCart.vue'
-import { mapGetters, mapAction, mapMutations,mapState } from "vuex";
+import Spinner from './Spinner.vue'
+import { mapGetters, mapAction, mapMutations, mapState } from "vuex";
 
+// import $ from "jquery";
 export default {
   name: "IndexCart",
   data() {
     return {
-      popup_text: ''
+      popup_text: '',
+      loading: false,
+      isDisabled: true  
+
     }
   },
   components: {
     EmptyCartVue,
+    Spinner,
 
-    Popup
+    Popup,
   },
   computed: {
     ...mapState(['secure_url']),
@@ -100,21 +111,36 @@ export default {
     //   return this.$refs.Popup.text_popup
 
     // }
+    loadingState() {
+      return this.loading
+    }
   },
   methods: {
-    openUploadWidget() {
 
+
+
+
+    openUploadWidget() {
+      this.loading = true
+      this.isDisabled =true
       const widget = window.cloudinary.createUploadWidget({
         cloud_name: 'dzo1tqhjz', upload_preset: 'l3gmhpji'
       }, (err, result) => {
+        this.loading = false
+        //   $(document).ready(function () {
+        //   $(".cart-total-btn").show()
+        // });
         if (!err && result && result.event === "success") {
+        this.isDisabled =false
+
           console.log(result.info.secure_url)
-          this.$store.commit('uploadImg',result.info.secure_url)
+          this.$store.commit('uploadImg', result.info.secure_url)
           console.log("done upload ... ", result.info)
         }
       }
 
       )
+
       widget.open()
     },
     deleteItemFromCart(item) {
