@@ -39,7 +39,9 @@ export default {
       'addToCart'
     ]),
     async addToCart(){
+
       this.$store.commit("openPopup");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       this.$store.commit('addToCart',this.mainProduct)
     }
   },

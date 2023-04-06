@@ -11,13 +11,14 @@ export default createStore({
         product: null,
         cart: [],
         order: null,
-        isPopup:false,
-        mainProduct:'',
-        secure_url:'',
-        quotes:'',
-        isPayment:false,
+        isPopup: false,
+        mainProduct: '',
+        secure_url: '',
+        quotes: '',
+        isPayment: false,
     },
     getters: {
+       
         productQuantity: state => product => {
             const item = state.cart.find(i => i._id === product._id)
             if (item) return item.quantity
@@ -34,17 +35,17 @@ export default createStore({
             console.log(' có cart')
             return state.cart
         },
-        checkIteminCart: state => (product) =>{
+        checkIteminCart: state => (product) => {
             console.log(`this is product ${product._id}`)
-            for(let i = 0 ;i< state.cart.length;i++){
-                if(product._id === i._id){
-                    count = count +1
+            for (let i = 0; i < state.cart.length; i++) {
+                if (product._id === i._id) {
+                    count = count + 1
                 }
 
             }
-            if(count === 0){
+            if (count === 0) {
                 return 0
-            }else{
+            } else {
                 return 1
             }
         },
@@ -71,22 +72,22 @@ export default createStore({
             state.product = data.data
 
         },
-        uploadImg(state,data){
+        uploadImg(state, data) {
 
             state.secure_url = data
         },
-        releasedUploadImg(state,data){
+        releasedUploadImg(state, data) {
             state.secure_url = ''
         },
-            
-        isPayment(state,data){
+
+        isPayment(state, data) {
 
             state.isPayment = true
         },
-        releasedPayment(state,data){
-            state.isPayment= false
+        releasedPayment(state, data) {
+            state.isPayment = false
         },
-        
+
         // CART
         async addToCart(state, product) {
             let item = state.cart.find(i => i._id === product._id)
@@ -106,9 +107,9 @@ export default createStore({
         openPopup(state) {
             state.isPopup = true
         },
-        getQuotes(state,data){
+        getQuotes(state, data) {
             console.log(`this is ${data} commit`)
-            state.quotes =data
+            state.quotes = data
         },
         async removeFromCart(state, product) {
 
@@ -146,12 +147,15 @@ export default createStore({
         makeOrder(state, order) {
             state.order = order.data
         },
-        getMainProduct(state,data){
+        getMainProduct(state, data) {
             state.mainProduct = data.data
         }
 
     },
     actions: {
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
         async getProduct({ commit }) {
             const data = await getProduct();
             commit('getProduct', data)
@@ -166,9 +170,9 @@ export default createStore({
             const data = await makeOrder(order)
             commit('makeOrder', data)
         },
-        async getMainProduct({}){
+        async getMainProduct({ }) {
             const data = await getMainProduct()
-            this.commit('getMainProduct',data)
+            this.commit('getMainProduct', data)
         }
     },
 })

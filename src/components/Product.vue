@@ -55,6 +55,7 @@ export default {
       // let { quantity } = this.inventory;
 
       this.$store.commit("openPopup");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       this.$store.commit("addToCart", this.product);
     },
     
