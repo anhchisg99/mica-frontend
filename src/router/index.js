@@ -16,27 +16,27 @@ import store from '../store/index.js'
 const routes = [
   {
     path: "/",
-    name: "IndexMain",
+    name: "Trang Chủ",
     component: IndexMain,
   },
   {
     path: "/product/:id",
-    name: "IndexProduct",
+    name: "Sản Phẩm",
     component: IndexProduct,
   },
   {
     path: "/empty-cart",
-    name: "EmptyCart",
+    name: "Giỏ Hàng",
     component: EmptyCart
   },
   {
     path: "/cart",
-    name: "IndexCart",
+    name: "Giỏ Hàng",
     component: IndexCart
   },
   {
     path: "/payment",
-    name: "Payment",
+    name: "Thanh Toán",
     component: Payment,
     meta: { transition: 'slide-left' },
     beforeEnter: (to, from, next) => {
@@ -87,6 +87,12 @@ router.beforeResolve((to, from, next) => {
   }
   next()
 })
+
+// How to change page titles when using vue-router?
+router.beforeEach((to, from, next) => {
+  document.title = to.name;
+  next();
+});
 
 router.afterEach((to, from) => {
   // Complete the animation of the route progress bar.
