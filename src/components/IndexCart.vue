@@ -66,7 +66,8 @@
                 </tr>
                 <tr>
                   <td colspan="1">
-                    <a @click="gotoPayment()" :class="{ Disabled: isDisabled }" class="btn cart-total-btn">proceed to
+                    <a @click="gotoPayment()" :class="{ Disabled: chechkSecureUrl }"
+                      class="btn cart-total-btn">proceed to
                       checkout</a>
                   </td>
                 </tr>
@@ -94,7 +95,7 @@ export default {
     return {
       popup_text: '',
       loading: false,
-      isDisabled: true  
+      isDisabled: false
 
     }
   },
@@ -111,6 +112,10 @@ export default {
     //   return this.$refs.Popup.text_popup
 
     // }
+    chechkSecureUrl() {
+
+      return this.secure_url ? false : true
+    },
     loadingState() {
       return this.loading
     }
@@ -122,16 +127,17 @@ export default {
 
     openUploadWidget() {
       this.loading = true
-      this.isDisabled =true
+      // this.isDisabled = true
       const widget = window.cloudinary.createUploadWidget({
         cloud_name: 'dzo1tqhjz', upload_preset: 'l3gmhpji'
       }, (err, result) => {
         this.loading = false
+
         //   $(document).ready(function () {
         //   $(".cart-total-btn").show()
         // });
         if (!err && result && result.event === "success") {
-        this.isDisabled =false
+          // this.isDisabled = false
 
           console.log(result.info.secure_url)
           this.$store.commit('uploadImg', result.info.secure_url)
