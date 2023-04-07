@@ -254,6 +254,7 @@ export default {
       if (isOk) {
         await this.makeOrder();
         await this.removeAllFromCart();
+        this.$store.commit('removeSecureUrl')
         this.$store.commit('closePopup')
         this.$store.commit('isPayment')
         this.$store.commit('relasedUploadImg')

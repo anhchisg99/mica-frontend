@@ -42,7 +42,7 @@ export default {
   mounted(){
     this.$store.commit('releasedPayment')
     this.$store.commit('updateCartFromLocalStorage')
-    
+    this.$store.commit('updateSecureUrlFromLocalStorage')
   }
 
 }

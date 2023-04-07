@@ -4,6 +4,9 @@ function updateLocalStorage(cart) {
     localStorage.setItem('cart',
         JSON.stringify(cart))
 }
+function uploadSecureUrl(link_img) {
+    localStorage.setItem('link_img', JSON.stringify(link_img));
+}
 export default createStore({
     state: {
         message: 'con ga be be',
@@ -75,6 +78,20 @@ export default createStore({
         uploadImg(state, data) {
 
             state.secure_url = data
+        },
+        // secure_url
+        updateSecure_Url(state,data){
+            uploadSecureUrl(data)
+        },
+        removeSecureUrl(state) {
+            state.secure_url = ''
+            uploadSecureUrl(state.secure_url)
+        },
+        updateSecureUrlFromLocalStorage(state) {
+            const link_img = localStorage.getItem('link_img')
+            if (link_img) {
+                state.secure_url = JSON.parse(link_img)
+            }
         },
         releasedUploadImg(state, data) {
             state.secure_url = ''

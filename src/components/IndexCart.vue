@@ -30,7 +30,8 @@
                   <td class="cart-td cart-icon-delete">
                     <!-- <span><ion-icon name="close-outl ine"></ion-icon></span> -->
                     <a @click="deleteItemFromCart(item)"><ion-icon name="close-outline"></ion-icon></a>
-                    <img :src="item.image" alt="" />
+                    <router-link :to="'/product/' + item._id"><img :src="item.image" alt="" /></router-link>
+                    
                     <span>{{ item.name }}</span>
                   </td>
                   <td class="cart-td">${{ item.price }}</td>
@@ -40,7 +41,7 @@
                 <tr>
                   <td colspan="2" class="cart-td cart-coupon">
                     <!-- Alfreds Futterkiste -->
-
+                    <!-- <a @click="deleteItemFromCart(item)"><ion-icon name="close-outline"></ion-icon></a> -->
                     <img v-if="secure_url" :src="secure_url" alt="" />
                     <!-- {{ popup_text }} -->
                   </td>
@@ -67,8 +68,7 @@
                 <tr>
                   <td colspan="1">
                     <a @click="gotoPayment()" :class="{ Disabled: chechkSecureUrl }"
-                      class="btn cart-total-btn">proceed to
-                      checkout</a>
+                      class="btn cart-total-btn">Tiến Hành Thanh Toán</a>
                   </td>
                 </tr>
               </table>
@@ -138,9 +138,10 @@ export default {
         // });
         if (!err && result && result.event === "success") {
           // this.isDisabled = false
-
           console.log(result.info.secure_url)
           this.$store.commit('uploadImg', result.info.secure_url)
+          this.$store.commit('updateSecure_Url',result.info.secure_url)
+
           console.log("done upload ... ", result.info)
         }
       }
