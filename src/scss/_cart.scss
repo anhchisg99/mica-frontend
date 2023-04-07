@@ -13,14 +13,21 @@
   }
   &-left {
     flex-grow: 2;
+    td{
+    // vertical-align: middle;
+
+    }
+    
     // border:1px solid red;
   }
+  
   &-right {
     // border:1px solid red;
     flex-grow: 1;
     table {
       tr:last-child {
         td {
+          
           a {
             width: 100%;
             display: block;
@@ -29,6 +36,9 @@
         }
       }
     }
+  }
+  &-secure_url{
+    vertical-align: middle;
   }
   &-icon-delete {
     img {
@@ -75,6 +85,7 @@
     border-bottom: none;
   }
   td:last-child {
+    // vertical-align: middle;
     padding: 25px 0px;
   }
   td img {
@@ -95,7 +106,7 @@
     }
   }
   .cart-coupon {
-    display: none;
+    display: inline-block;
   }
   .update-button {
     text-align: left;
