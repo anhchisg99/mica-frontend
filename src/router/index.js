@@ -38,8 +38,9 @@ const routes = [
     path: "/payment",
     name: "Payment",
     component: Payment,
+    meta: { transition: 'slide-left' },
     beforeEnter: (to, from, next) => {
-      if (store.getters['isItem'] != 0) {
+      if (store.getters['isItem'] != 0 && store.state['secure_url'] != '') {
         next()
       } else {
         next('/')
