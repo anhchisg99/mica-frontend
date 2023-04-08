@@ -39,14 +39,14 @@
                   <td class="cart-td">${{ item.price }}</td>
                 </tr>
                 <tr class="">
-                  <td colspan="2" class="cart-td cart-coupon cart-secure_url">
+                  <td colspan="1" class="cart-td cart-coupon cart-secure_url">
                     <!-- Alfreds Futterkiste -->
                     <!-- <a @click="deleteItemFromCart(item)"><ion-icon name="close-outline"></ion-icon></a> -->
                     <img v-if="secure_url" :src="secure_url" alt="" />
                     <!-- {{ popup_text }} -->
                   </td>
 
-                  <td colspan="3" update-button class="update-button cart-secure_url">
+                  <td colspan="3" update-button class="update-button cart-secure_url cart-secure_url_btn">
                     <a class="btn" @click="openUploadWidget()">Tải hình ảnh</a>
                   </td>
                 </tr>

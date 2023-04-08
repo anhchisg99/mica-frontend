@@ -40,6 +40,7 @@
   &-secure_url{
     vertical-align: middle;
   }
+
   &-icon-delete {
     img {
       margin: 0 3px;
@@ -93,7 +94,18 @@
     height: 70px;
   }
 }
+.cart-secure_url{
+  // display:inline
 
+  // border:1px solid red;
+}
+.cart-secure_url_btn{
+  a{
+    float:right;
+    max-width: 100%;
+    // border:1px solid red;
+  }
+}
 .update-button {
   // border:1px solid blue;
   text-align: right;
