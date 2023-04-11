@@ -19,7 +19,7 @@
       </div>
       <div class="product-right">
         <div class="product-content">
-          <p class="product-price">{{ product.price }}
+          <p class="product-price">{{ product.price.toLocaleString() }}
             <!-- <span style='font-size:1.1em;'>&#273;</span> -->
 <span>&#8363;</span>
           </p>

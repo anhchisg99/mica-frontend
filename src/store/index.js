@@ -73,7 +73,12 @@ export default createStore({
                 sum = sum + (state.cart[i].quantity * state.cart[i].price)
             }
             return sum;
-        }
+        },
+        totalPerProduct: state => product => {
+            const item = state.cart.find(i => i._id === product._id)
+            if (item) return item.quantity*item.price;
+            else return null
+        },
     },
     mutations: {
         getProduct(state, data) {

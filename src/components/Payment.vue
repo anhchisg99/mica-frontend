@@ -122,7 +122,7 @@
             <table>
               <tr>
                 <th>Tạm tính</th>
-                <td>{{ subTotal }} <span>&#8363;</span></td>
+                <td>{{ subTotal.toLocaleString() }} <span>&#8363;</span></td>
               </tr>
               <tr>
                 <th>Phí vận chuyển</th>
@@ -130,7 +130,7 @@
               </tr>
               <tr>
                 <th>Tổng cộng</th>
-                <td class="payment-total-price">{{ Total }}<span>&#8363;</span></td>
+                <td class="payment-total-price">{{ Total.toLocaleString() }}<span>&#8363;</span></td>
               </tr>
             </table>
           </div>
@@ -170,8 +170,9 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["cartItems", "subTotal","Total",]),
+    ...mapGetters(["cartItems", "subTotal","Total"]),
     ...mapState(["quotes", "isPayment","secure_url"]),
+   
 
   },
   methods: {

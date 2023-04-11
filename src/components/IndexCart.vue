@@ -34,9 +34,9 @@
                     
                     <span>{{ item.name }}</span>
                   </td>
-                  <td class="cart-td">{{ item.price }}<span>&#8363;</span></td>
+                  <td class="cart-td">{{ item.price.toLocaleString() }}<span>&#8363;</span></td>
                   <td class="cart-td">{{ item.quantity }}</td>
-                  <td class="cart-td">{{ item.price }}<span>&#8363;</span></td>
+                  <td class="cart-td">{{ totalPerProduct(item).toLocaleString() }}<span>&#8363;</span></td>
                 </tr>
                 <tr class="">
                   <td colspan="1" class="cart-td cart-coupon cart-secure_url">
@@ -59,11 +59,11 @@
               <table style="width: 100%">
                 <tr>
                   <th>Tạm Tính</th>
-                  <th>{{ subTotal }}<span>&#8363;</span></th>
+                  <th>{{ subTotal.toLocaleString() }}<span>&#8363;</span></th>
                 </tr>
                 <tr class="cart-total-tr">
                   <td>Tổng Tiền</td>
-                  <td>{{ subTotal }}<span>&#8363;</span></td>
+                  <td>{{ subTotal.toLocaleString() }}<span>&#8363;</span></td>
                 </tr>
                 <tr>
                   <td colspan="1">
@@ -107,7 +107,7 @@ export default {
   },
   computed: {
     ...mapState(['secure_url']),
-    ...mapGetters(["cartItems", "subTotal", "isItem",]),
+    ...mapGetters(["cartItems", "subTotal", "isItem",,"totalPerProduct"]),
     // testPopup(){
     //   return this.$refs.Popup.text_popup
 

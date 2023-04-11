@@ -10,7 +10,7 @@
         <span>{{ item.name }} </span>
       </th>
       <td class="product-quantity"></td>
-      <td class="product-price">{{ item.price }} <span>&#8363;</span></td>
+      <td class="product-price">{{ item.price.toLocaleString()}} <span>&#8363;</span></td>
     </tr>
   </table>
 </template>
