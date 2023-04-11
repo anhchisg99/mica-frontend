@@ -19,7 +19,10 @@
       </div>
       <div class="product-right">
         <div class="product-content">
-          <p class="product-price">{{ product.price }}</p>
+          <p class="product-price">{{ product.price }}
+            <!-- <span style='font-size:1.1em;'>&#273;</span> -->
+<span>&#8363;</span>
+          </p>
           <h2 class="product-heading">{{ product.name }}</h2>
           <div class="product-desc" v-if="product.description">
             {{ product.description }}
@@ -50,7 +53,7 @@ export default {
     ...mapState(['cart'])
   },
   methods: {
-    
+
     async addToCart() {
       // let { quantity } = this.inventory;
 
@@ -58,29 +61,29 @@ export default {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       this.$store.commit("addToCart", this.product);
     },
-    
-    
+
+
     async gotoCart() {
       if (this.checkIteminCart) {
         this.$router.push({ path: "/cart" });
-        
+
       } else {
-        let isItemInCart = this.cart.find(i=>i._id === this.product._id)
-        if(isItemInCart){
-        this.$router.push({ path: "/cart" });
-          
-        }else{
+        let isItemInCart = this.cart.find(i => i._id === this.product._id)
+        if (isItemInCart) {
+          this.$router.push({ path: "/cart" });
+
+        } else {
           this.$store.commit("openPopup");
           this.$store.commit("addToCart", this.product);
           this.$router.push({ path: "/cart" });
         }
-       
+
 
       }
-      
+
     },
   },
-  
+
 };
 </script>
 

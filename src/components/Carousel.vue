@@ -8,8 +8,10 @@
             <div class="carousel-desc">
               <p>những kỉ niệm đẹp trong từng khung hình</p>
               <p>
-                Easy to use, fully customizable WordPress themes for heart–driven
-                creatives and small businesses.
+               chất liệu MICA trong suốt <br>
+                cùng với công nghệ cắt laser tiên tiến <br>
+                đã tạo nên một khung hình hoàn mỹ <br>
+                <!-- Biểu tượng cho tình yêu vĩnh cửu -->
               </p>
             </div>
             <div class="carousel-button">

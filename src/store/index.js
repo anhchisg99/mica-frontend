@@ -60,11 +60,12 @@ export default createStore({
             }
         },
         subTotal: state => {
-            let sum = 0
+            let sum = 0;
+            let shipping_fee = 19000;
             for (let i = 0; i < state.cart.length; i++) {
                 sum = sum + (state.cart[i].quantity * state.cart[i].price)
             }
-            return sum
+            return sum + shipping_fee;
         }
     },
     mutations: {

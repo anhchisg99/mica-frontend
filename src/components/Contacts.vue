@@ -6,11 +6,11 @@
         <ul>
           <li><a href="" class="contacts-icon">
               <div class=""><ion-icon name="logo-instagram"></ion-icon></div>
-              <div class="nav-text">INSTAGRAM</div>
+              <div class="nav-text"> <a href="/" a>INSTAGRAM</a></div> 
             </a></li>
           <li><a href="" class="contacts-icon">
               <div class=""><ion-icon name="logo-facebook"></ion-icon></div>
-              <div class="nav-text">FACEBOOK</div>
+              <div class="nav-text"><a href="https://www.facebook.com/profile.php?id=100091806067682" target="_blank" a>FACEBOOK</a></div>
             </a></li>
 
         </ul>

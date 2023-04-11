@@ -122,15 +122,15 @@
             <table>
               <tr>
                 <th>Tạm tính</th>
-                <td>{{ subTotal }}</td>
+                <td>{{ subTotal }} <span>&#8363;</span></td>
               </tr>
               <tr>
                 <th>Phí vận chuyển</th>
-                <td>Calculated at next step</td>
+                <td>19.000 <span>&#8363;</span></td>
               </tr>
               <tr>
                 <th>Tổng cộng</th>
-                <td class="payment-total-price">${{ subTotal }}</td>
+                <td class="payment-total-price">{{ subTotal }}<span>&#8363;</span></td>
               </tr>
             </table>
           </div>
