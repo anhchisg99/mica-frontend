@@ -130,7 +130,7 @@
               </tr>
               <tr>
                 <th>Tổng cộng</th>
-                <td class="payment-total-price">{{ subTotal }}<span>&#8363;</span></td>
+                <td class="payment-total-price">{{ Total }}<span>&#8363;</span></td>
               </tr>
             </table>
           </div>
@@ -170,7 +170,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["cartItems", "subTotal",]),
+    ...mapGetters(["cartItems", "subTotal","Total",]),
     ...mapState(["quotes", "isPayment","secure_url"]),
 
   },

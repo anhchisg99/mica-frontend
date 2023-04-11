@@ -59,13 +59,20 @@ export default createStore({
                 return 1
             }
         },
-        subTotal: state => {
+        Total: state => {
             let sum = 0;
             let shipping_fee = 19000;
             for (let i = 0; i < state.cart.length; i++) {
                 sum = sum + (state.cart[i].quantity * state.cart[i].price)
             }
             return sum + shipping_fee;
+        },
+        subTotal:state=>{
+            let sum = 0;
+            for (let i = 0; i < state.cart.length; i++) {
+                sum = sum + (state.cart[i].quantity * state.cart[i].price)
+            }
+            return sum;
         }
     },
     mutations: {
