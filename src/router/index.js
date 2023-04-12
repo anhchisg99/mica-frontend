@@ -16,7 +16,7 @@ import store from '../store/index.js'
 const routes = [
   {
     path: "/",
-    name: "Trang Chủ",
+    name: "Hearten Frame",
     component: IndexMain,
   },
   {
