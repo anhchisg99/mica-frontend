@@ -42,7 +42,7 @@
                   <td colspan="1" class="cart-td cart-coupon cart-secure_url cart-icon-delete">
                     <!-- Alfreds Futterkiste -->
                     <!-- button delete img -->
-                    <a v-if="secure_url" @click="deleteSecureUrl()"><ion-icon name="close-outline"></ion-icon></a>
+                    <a v-if="secure_url" class="delete-button-cart" @click="deleteSecureUrl()"><ion-icon name="close-outline"></ion-icon></a>
                     <img v-if="secure_url" :src="secure_url" alt="" />
                     <!-- {{ popup_text }} -->
                   </td>
