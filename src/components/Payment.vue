@@ -59,13 +59,7 @@
                   class="field__input" size="30" type="email" name="checkout[email]" id="checkout_email" />
               </div>
               <div class="payment-fullname">
-                <div class="payment-firstname payment-field">
-                  <label class="field__label field__label--visible" for="checkout_email">City</label>
-                  <input v-model="city" placeholder="Thành phố / Tỉnh" autocapitalize="off" spellcheck="false"
-                    autocomplete="shipping email" data-shopify-pay-handle="true" data-autofocus="true"
-                    data-backup="customer_email" aria-describedby="checkout-context-step-one" aria-required="true"
-                    class="field__input" size="30" type="email" name="checkout[email]" id="checkout_email" />
-                </div>
+               
                 <div class="payment-lastname payment-field">
                   <label class="field__label field__label--visible" for="checkout_email">Street</label>
                   <input v-model="street" placeholder="Quận / Huyện" autocapitalize="off" spellcheck="false"
@@ -73,6 +67,13 @@
                     data-backup="customer_email" aria-describedby="checkout-context-step-one" aria-required="true"
                     class="field__input" size="30" type="email" name="checkout[email]" id="checkout_email" />
                   <!-- <p v-if="errors.length">entering phone ...</p> -->
+                </div>
+                <div class="payment-firstname payment-field">
+                  <label class="field__label field__label--visible" for="checkout_email">City</label>
+                  <input v-model="city" placeholder="Thành phố / Tỉnh" autocapitalize="off" spellcheck="false"
+                    autocomplete="shipping email" data-shopify-pay-handle="true" data-autofocus="true"
+                    data-backup="customer_email" aria-describedby="checkout-context-step-one" aria-required="true"
+                    class="field__input" size="30" type="email" name="checkout[email]" id="checkout_email" />
                 </div>
               </div>
               <div v-if="errorAddress.length" class="payment-error">
