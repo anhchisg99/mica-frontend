@@ -8,6 +8,7 @@ import IndexCart from '../components/IndexCart.vue'
 import Payment from '../components/Payment.vue'
 import Test from '../components/Test.vue'
 import Success from '../components/Success.vue'
+import AboutUs from '../components/AboutUs.vue'
 
 // import store 
 import store from '../store/index.js'
@@ -33,6 +34,11 @@ const routes = [
     path: "/cart",
     name: "Giỏ Hàng",
     component: IndexCart
+  },
+  {
+    path: "/about-us",
+    name: "About Us",
+    component: AboutUs
   },
   {
     path: "/payment",
