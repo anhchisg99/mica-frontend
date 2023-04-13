@@ -6,7 +6,7 @@
         <ul>
           <li><a href="" class="contacts-icon">
               <div class=""><ion-icon name="logo-instagram"></ion-icon></div>
-              <div class="nav-text"> <a href="/" a>INSTAGRAM</a></div> 
+              <div class="nav-text"> <a href="https://www.instagram.com/hearten_frame/" target="_blank" a>INSTAGRAM</a></div> 
             </a></li>
           <li><a href="" class="contacts-icon">
               <div class=""><ion-icon name="logo-facebook"></ion-icon></div>
