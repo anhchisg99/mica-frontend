@@ -39,9 +39,10 @@
                   <td class="cart-td">{{ totalPerProduct(item).toLocaleString() }}<span>&#8363;</span></td>
                 </tr>
                 <tr class="">
-                  <td colspan="1" class="cart-td cart-coupon cart-secure_url">
+                  <td colspan="1" class="cart-td cart-coupon cart-secure_url cart-icon-delete">
                     <!-- Alfreds Futterkiste -->
-                    <!-- <a @click="deleteItemFromCart(item)"><ion-icon name="close-outline"></ion-icon></a> -->
+                    <!-- button delete img -->
+                    <a v-if="secure_url" @click="deleteSecureUrl()"><ion-icon name="close-outline"></ion-icon></a>
                     <img v-if="secure_url" :src="secure_url" alt="" />
                     <!-- {{ popup_text }} -->
                   </td>
@@ -153,6 +154,10 @@ export default {
     deleteItemFromCart(item) {
 
       this.$store.commit('deleteItemFromCart', item)
+    },
+    deleteSecureUrl(){
+      this.$store.commit('removeSecureUrl')
+
     },
     gotoPayment() {
       this.$store.commit('getQuotes', this.popup_text)
