@@ -6,7 +6,8 @@
           <div><ion-icon name="heart-half-outline"></ion-icon></div
         ></router-link>
 
-        <router-link to="/"><h1>Hearten Made Logo</h1> </router-link>
+        <!-- <router-link to="/"><h1> <img class="" src="../assets/hearten-mica-logo.png" alt=""> </h1> </router-link> -->
+        <router-link to="/"> <div class="header-logo"><img class="header-logo-image" src="../assets/fixed-mica-logo-2.jpeg" alt=""> </div></router-link>
         <div class="header-icon">
           <div to="/cart" class="popup bell-icon">
             <router-link to="/cart" @click="closePopup()">
