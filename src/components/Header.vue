@@ -14,7 +14,7 @@
               <span class="icon" >
                 <ion-icon class="icon-cart" name="cart-outline"></ion-icon>
               </span>
-              <span class=""> {{ totalQuantity }} </span>
+              <span class="popupquantity"> {{ totalQuantity }} </span>
             </router-link>
             <span class="popuptext" :class="{ show: this.isPopup }" id="myPopup"
               > thêm vào giỏ thành công </span

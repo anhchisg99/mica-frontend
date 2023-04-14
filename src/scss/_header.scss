@@ -1,4 +1,7 @@
 .header {
+  ion-icon{
+    font-size:1.5em;
+  }
   &-container {
     margin: 0px 43px;
 
@@ -15,6 +18,8 @@
   }
   &-icon {
     position: relative;
+    
+    // font-size: 1.3em;
   }
   &-logo{
     max-width: 175px;
@@ -88,6 +93,23 @@
 }
 .popuptext{
   font-size:0.5em !important;
+  
+}
+.popupquantity{
+  position: absolute;
+    top: -3px;
+    right: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border:1px solid red;
+    border-radius: 50%;
+    // padding:2px;
+    font-size:0.8em;
+    color:white;
+    background: $quotes-color;
+    height: 19px;
+    width: 19px;
 }
 
 /* Toggle this class - hide and show the popup */
