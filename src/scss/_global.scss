@@ -1,31 +1,12 @@
-// * {
-//     box-sizing: border-box;
-//     margin: 0;
-//     padding: 0;
-//   }
-//   body {
-//     // font-family: $primary-font;
-//     max-width: 1660px;
-//     margin: 0 auto;
-//     font-size: 16px;
-//   }
-//   .icon {
-//     font-size: 1.5em;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//   }
-//   header {
-//     z-index: 1000;
-//     background: white;
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//   }
+
 * {
   font-family: "Inconsolata", monospace;
   font-family: "Roboto", sans-serif;
+  // box-sizing: border-box;
+  // box-sizing: border-box;
+}
+html,body{
+  overflow-x: hidden;
 }
 .btn {
   border-radius: 30px;
