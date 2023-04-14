@@ -86,19 +86,28 @@
 .demo-btn a {
   display: block;
   text-align: center;
-  width: 200px;
   text-transform: uppercase;
   letter-spacing: 2px;
   // height: 50px;
+}
+.demo-btn a:hover{
+  background: $product-btn-line-color;
+  color:white;
 }
 .cart-btn {
   margin: 20px 0px;
   // color:$prodcut-btn-color;
 }
+.cart-btn a{
+  width: 200px;
+
+}
 .demo-btn a {
   border: 1px solid $product-btn-line-color;
   background: $product-color;
   color: $product-btn-line-color;
+  width: 198px;
+
 }
 
 @include forMobie {
