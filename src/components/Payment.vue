@@ -59,13 +59,13 @@
                   class="field__input" size="30" name="checkout[email]" id="checkout_email" />
               </div>
               <div class="payment-fullname">
-               
+
                 <div class="payment-lastname payment-field">
                   <label class="field__label field__label--visible" for="checkout_email">Street</label>
                   <input v-model="street" placeholder="Quận / Huyện" autocapitalize="off" spellcheck="false"
                     autocomplete="shipping email" data-shopify-pay-handle="true" data-autofocus="true"
                     data-backup="customer_email" aria-describedby="checkout-context-step-one" aria-required="true"
-                    class="field__input" size="30"  name="checkout[email]" id="checkout_email" />
+                    class="field__input" size="30" name="checkout[email]" id="checkout_email" />
                   <!-- <p v-if="errors.length">entering phone ...</p> -->
                 </div>
                 <div class="payment-firstname payment-field">
@@ -73,7 +73,7 @@
                   <input v-model="city" placeholder="Thành phố / Tỉnh" autocapitalize="off" spellcheck="false"
                     autocomplete="shipping email" data-shopify-pay-handle="true" data-autofocus="true"
                     data-backup="customer_email" aria-describedby="checkout-context-step-one" aria-required="true"
-                    class="field__input" size="30"  name="checkout[email]" id="checkout_email" />
+                    class="field__input" size="30" name="checkout[email]" id="checkout_email" />
                 </div>
               </div>
               <div v-if="errorAddress.length" class="payment-error">
@@ -86,12 +86,12 @@
                   </span>
                   <router-link to="/cart"> <span> Quay về giỏ hàng</span></router-link>
                 </a>
-                <button @click="makeOrderAndremoveAllFromCart()">
+                <button @click="handleReBounce()">
                   TIẾN HÀNH ĐẶT HÀNG
                 </button>
               </div>
               <!-- show error -->
-              
+
             </div>
 
           </div>
@@ -137,8 +137,8 @@
           </div>
           <div class="payment-shipping">
             <span><ion-icon name="checkmark-circle-outline"></ion-icon> </span>
-            <p> 	Thanh toán khi giao hàng (COD)	
-</p>
+            <p> Thanh toán khi giao hàng (COD)
+            </p>
           </div>
         </div>
       </div>
@@ -149,7 +149,7 @@
 <script>
 import ProductTable from "./ProductTable.vue";
 
-import { mapGetters, mapAction, mapState,mapMutations} from "vuex";
+import { mapGetters, mapAction, mapState, mapMutations } from "vuex";
 export default {
   name: "Payment",
   components: {
@@ -167,14 +167,16 @@ export default {
       errors: [],
       errorName: [],
       errorAddress: [],
-      value: ''
+      value: '',
+      timer:300,
+      timeOut:null
       // quotes:""
     };
   },
   computed: {
-    ...mapGetters(["cartItems", "subTotal","Total"]),
-    ...mapState(["quotes", "isPayment","secure_url"]),
-   
+    ...mapGetters(["cartItems", "subTotal", "Total"]),
+    ...mapState(["quotes", "isPayment", "secure_url"]),
+
 
   },
   methods: {
@@ -185,6 +187,15 @@ export default {
       }
 
       return true;
+    },
+    handleReBounce() {
+      
+      clearTimeout(this.timeOut);
+      console.log('Rebounce')
+      this.timeOut = setTimeout(() => {
+        this.makeOrderAndremoveAllFromCart();
+        console.log('Rebounce active')
+      }, this.timer);
     },
     acceptNumber() {
       var x = this.phone.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
@@ -239,14 +250,14 @@ export default {
       if (!this.city) {
         this.errorAddress.push("City required.");
       }
-      
 
 
-      if (!this.errors.length && !this.errorName.length && !this.errorAddress.length  ) {
+
+      if (!this.errors.length && !this.errorName.length && !this.errorAddress.length) {
         return true;
       }
       // this.errors = []
-      e.preventDefault(); 
+      e.preventDefault();
     },
     async makeOrderAndremoveAllFromCart() {
       this.errors = [];

@@ -48,7 +48,7 @@
                   </td>
 
                   <td colspan="3" update-button class="update-button cart-secure_url cart-secure_url_btn">
-                    <a class="btn" @click="openUploadWidget()">Tải hình ảnh</a>
+                    <a class="btn" @click="handleReBounce()">Tải hình ảnh</a>
                   </td>
                 </tr>
               </table>
@@ -96,7 +96,9 @@ export default {
     return {
       popup_text: '',
       loading: false,
-      isDisabled: false
+      isDisabled: false,
+      timer:500,
+      timeOut:null
 
     }
   },
@@ -124,7 +126,15 @@ export default {
   methods: {
 
 
-
+    handleReBounce() {
+      
+      clearTimeout(this.timeOut);
+      console.log('Rebounce')
+      this.timeOut = setTimeout(() => {
+        this.openUploadWidget();
+        console.log('Rebounce active')
+      }, this.timer);
+    },
 
     openUploadWidget() {
       this.loading = true

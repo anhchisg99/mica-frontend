@@ -14,12 +14,8 @@
                     <img src="images/002.jpg" alt="">
                 </div>
                 <div class="about-us-content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, ipsum dignissimos nostrum sequi
-                        accusantium in? Laudantium ipsa nulla, minus laborum atque nam qui debitis fugiat vero ad animi
-                        veniam quos!</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem cumque vel recusandae
-                        obcaecati perspiciatis harum! A suscipit nostrum nemo laborum inventore quisquam veritatis doloribus
-                        accusantium, dignissimos dolore repellat, ab corrupti.</p>
+                    <p>Con đường lưu giữ từng khoảng khắc của tình yêu bắt đầu từ 26/3 tại Đà Lạt, xuất phát ý tưởng về 1 khung hình để ghi lại từng khoảng khắc kỉ niệm mang dấu ấn riêng biệt cho mỗi cặp đôi. Với những trải nghiệm gói gém từ những lần chu du ở thành phố Ngàn Hoa. Cuộc hành trình Hearten Frame cùng những người bạn Genz đã bắt đầu đầy nhiệt huyết và sáng tạo như thế.</p>
+                    <p>Không quá ồn ào hay phô trương, 'Hearten Frame' tượng trung cho những giá trị của tình yêu: Tình yêu thật sự không phải là cảm xúc, dù nó thường đến cùng những cảm xúc mạnh đến mức làm con người choáng ngợp. Tình yêu không thể kéo dài nếu hai người chỉ có cảm xúc với nhau. Sự hiểu biết lẫn nhau mới là nền tảng của tình yêu thật sự. Và quá trình là con đường dẫn những kỉ niệm đẹp. Chính vì điều đấy đã thôi thúc Hearten Frame tìm cách lưu giữ lại khoảng khắc kỉ niệm đấy, cho dù sau này tình yêu có tươi đẹp hay sóng gió đi chăng nữa, chỉ cần nhìn vào khung ảnh của cả hai, ta đã biết có một thời thanh xuân tươi đẹp. Và mãi không phai nhòa.</p>
                 </div>
             </div>
         </div>
