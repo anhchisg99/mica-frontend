@@ -3,7 +3,6 @@
   background: $product-color;
   position: relative;
   &-container {
-
     display: flex;
     max-width: 1100px;
     margin: auto;
@@ -21,7 +20,7 @@
     // height: 100%;
     img {
       border: 3px solid black;
-        border-radius: 10px;
+      border-radius: 10px;
       width: 100%;
       // height: 100%;
       display: block;
@@ -33,6 +32,26 @@
   &-heading,
   &-price {
     margin-bottom: 17px;
+    // border:1px solid red;
+  }
+  &-image {
+    position: relative;
+  }
+  &-small-quantity {
+    position: absolute;
+    top: -10px;
+    right: -8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border:1px solid red;
+    border-radius: 50%;
+    // padding:2px;
+    font-size:0.8em;
+    color:white;
+    background: $quotes-color;
+    height: 19px;
+    width: 19px;
   }
   &-desc {
     font-weight: 300;
@@ -48,18 +67,18 @@
     // display: flex;
     // flex-direction: column;
   }
-  &-back{
-    ion-icon{
-      font-size:1.5em;
+  &-back {
+    ion-icon {
+      font-size: 1.5em;
     }
-    position:absolute;
-    left:50px;
-    top:35px;
+    position: absolute;
+    left: 50px;
+    top: 35px;
     display: flex;
     align-items: center;
     gap: 10px;
     font-weight: 300;
-    font-size:0.9em;
+    font-size: 0.9em;
     text-transform: uppercase;
   }
 }
@@ -85,7 +104,7 @@
 @include forMobie {
   .product {
     padding: 110px 23px 23px 23px;
-  // padding: 110px 24px 0px 24px;
+    // padding: 110px 24px 0px 24px;
 
     &-container {
       flex-direction: column;
@@ -98,6 +117,7 @@
     &-heading,
     &-price {
       margin-bottom: 30px;
+      // border:1px solid red;
     }
     &-heading {
       line-height: 1.3em;

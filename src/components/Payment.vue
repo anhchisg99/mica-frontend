@@ -137,7 +137,8 @@
           </div>
           <div class="payment-shipping">
             <span><ion-icon name="checkmark-circle-outline"></ion-icon> </span>
-            <p> Shipping Code</p>
+            <p> 	Thanh toán khi giao hàng (COD)	
+</p>
           </div>
         </div>
       </div>
