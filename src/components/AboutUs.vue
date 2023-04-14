@@ -11,7 +11,7 @@
         <div class="about-us">
             <div class="about-us-container">
                 <div class="about-us-img">
-                    <img src="images/002.jpg" alt="">
+                    <img src="../assets/about-me-mica.jpeg" alt="">
                 </div>
                 <div class="about-us-content">
                     <p>Con đường lưu giữ từng khoảng khắc của tình yêu bắt đầu từ 26/3 tại Đà Lạt, xuất phát ý tưởng về 1 khung hình để ghi lại từng khoảng khắc kỉ niệm mang dấu ấn riêng biệt cho mỗi cặp đôi. Với những trải nghiệm gói gém từ những lần chu du ở thành phố Ngàn Hoa. Cuộc hành trình Hearten Frame cùng những người bạn Genz đã bắt đầu đầy nhiệt huyết và sáng tạo như thế.</p>
@@ -19,29 +19,7 @@
                 </div>
             </div>
         </div>
-        <section class="contacts">
-            <div class="contacts-container">
-                <div class="contacts-col first-col">
-                    <h2 class="contacts-heading">Useful Links</h2>
-                    <ul>
-                        <li><a href="">FAGS</a></li>
-                        <li><a href="">CONTACT</a></li>
-                    </ul>
-                </div>
-                <div class="contacts-col second-col">
-                    <h2 class="contacts-heading">legal</h2>
-                    <ul>
-                        <li><a href="">FAGS</a></li>
-                        <li><a href="">CONTACT</a></li>
-                        <li><a href="">RESOURCES</a></li>
-                        <li><a href="">FOR DESIGNERS</a></li>
-                    </ul>
-                </div>
-                <div class="contacts-col third-col">
-
-                </div>
-            </div>
-        </section>
+       
     </div>
 </template>
 
