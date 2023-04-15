@@ -31,7 +31,7 @@
                     <!-- <span><ion-icon name="close-outl ine"></ion-icon></span> -->
                     <a @click="deleteItemFromCart(item)"><ion-icon name="close-outline"></ion-icon></a>
                     <router-link :to="'/product/' + item._id"><img :src="item.image" alt="" /></router-link>
-                    
+
                     <span>{{ item.name }}</span>
                   </td>
                   <td class="cart-td">{{ item.price.toLocaleString() }}<span>&#8363;</span></td>
@@ -42,7 +42,8 @@
                   <td colspan="1" class="cart-td cart-coupon cart-secure_url cart-icon-delete">
                     <!-- Alfreds Futterkiste -->
                     <!-- button delete img -->
-                    <a v-if="secure_url" class="delete-button-cart" @click="deleteSecureUrl()"><ion-icon name="close-outline"></ion-icon></a>
+                    <a v-if="secure_url" class="delete-button-cart" @click="deleteSecureUrl()"><ion-icon
+                        name="close-outline"></ion-icon></a>
                     <img v-if="secure_url" :src="secure_url" alt="" />
                     <!-- {{ popup_text }} -->
                   </td>
@@ -68,12 +69,17 @@
                 </tr>
                 <tr>
                   <td colspan="1">
-                    <a @click="gotoPayment()" :class="{ Disabled: chechkSecureUrl }"
-                      class="btn cart-total-btn">Tiến Hành Thanh Toán</a>
+                    <a @click="gotoPayment()" :class="{ Disabled: chechkSecureUrl }" class="btn cart-total-btn">Tiến Hành
+                      Thanh Toán</a>
                   </td>
                 </tr>
+
               </table>
             </div>
+            <div class="cart-notice">
+              <p>>> <strong>Tải ảnh trước khi tiến hành thanh toán</strong>  </p>
+            </div>
+
           </div>
         </div>
       </section>
@@ -97,8 +103,8 @@ export default {
       popup_text: '',
       loading: false,
       isDisabled: false,
-      timer:500,
-      timeOut:null
+      timer: 500,
+      timeOut: null
 
     }
   },
@@ -110,7 +116,7 @@ export default {
   },
   computed: {
     ...mapState(['secure_url']),
-    ...mapGetters(["cartItems", "subTotal", "isItem",,"totalPerProduct"]),
+    ...mapGetters(["cartItems", "subTotal", "isItem", , "totalPerProduct"]),
     // testPopup(){
     //   return this.$refs.Popup.text_popup
 
@@ -127,7 +133,7 @@ export default {
 
 
     handleReBounce() {
-      
+
       clearTimeout(this.timeOut);
       console.log('Rebounce')
       this.timeOut = setTimeout(() => {
@@ -151,7 +157,7 @@ export default {
           // this.isDisabled = false
           console.log(result.info.secure_url)
           this.$store.commit('uploadImg', result.info.secure_url)
-          this.$store.commit('updateSecure_Url',result.info.secure_url)
+          this.$store.commit('updateSecure_Url', result.info.secure_url)
 
           console.log("done upload ... ", result.info)
         }
@@ -165,7 +171,7 @@ export default {
 
       this.$store.commit('deleteItemFromCart', item)
     },
-    deleteSecureUrl(){
+    deleteSecureUrl() {
       this.$store.commit('removeSecureUrl')
 
     },
