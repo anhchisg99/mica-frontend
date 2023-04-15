@@ -15,7 +15,7 @@
         <div class="payment-left">
           <div class="payment-wrapper">
             <div class="payment-contact">
-              <h3 class="payment-heading">Thông Tin Nhân Hàng</h3>
+              <h3 class="payment-heading">Thông Tin Nhận Hàng</h3>
               <!-- <div class="payment-email payment-field">
                 <label class="field__label field__label--visible" for="checkout_email">Email</label>
                 <input v-model="email" placeholder="Email" autocapitalize="off" spellcheck="false"
