@@ -6,13 +6,13 @@
           <div class="carousel-content">
 
             <div class="carousel-desc">
-              <p>những kỉ niệm đẹp trong từng khung hình</p>
-              <p>
-               chất liệu MICA trong suốt <br>
+              <h2>những kỉ niệm đẹp trong từng khung hình</h2>
+              <h2>
+               chất liệu Khung trong suốt <br>
                 cùng với công nghệ cắt laser tiên tiến <br>
                 đã tạo nên một khung hình hoàn mỹ <br>
                 <!-- Biểu tượng cho tình yêu vĩnh cửu -->
-              </p>
+              </h2>
             </div>
             <div class="carousel-button">
               <a @click="addToCart()" class="btn" > THÊM VÀO GIỎ </a>
