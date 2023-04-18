@@ -180,8 +180,8 @@ export default {
 
   },
   mounted(){
-
     this.$store.commit('freeShipping')
+
   },
   methods: {
     ...mapMutations(["releasedUploadImg"]),

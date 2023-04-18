@@ -19,7 +19,7 @@ export default createStore({
         secure_url: '',
         quotes: '',
         isPayment: false,
-        shipping_fee: 19000
+        shipping_fee: 0
     },
     getters: {
        
@@ -97,6 +97,8 @@ export default createStore({
             }
             if(sum>=2){
                 state.shipping_fee = 0
+            }else{
+                state.shipping_fee = 19000
             }
         },
         uploadImg(state, data) {

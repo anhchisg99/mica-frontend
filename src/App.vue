@@ -43,6 +43,7 @@ export default {
     this.$store.commit('releasedPayment')
     this.$store.commit('updateCartFromLocalStorage')
     this.$store.commit('updateSecureUrlFromLocalStorage')
+
   }
 
 }
