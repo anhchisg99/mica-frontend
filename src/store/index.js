@@ -19,6 +19,7 @@ export default createStore({
         secure_url: '',
         quotes: '',
         isPayment: false,
+        shipping_fee: 19000
     },
     getters: {
        
@@ -61,11 +62,11 @@ export default createStore({
         },
         Total: state => {
             let sum = 0;
-            let shipping_fee = 19000;
+            // let shipping_fee = 19000;
             for (let i = 0; i < state.cart.length; i++) {
                 sum = sum + (state.cart[i].quantity * state.cart[i].price)
             }
-            return sum + shipping_fee;
+            return sum + state.shipping_fee;
         },
         subTotal:state=>{
             let sum = 0;
@@ -87,6 +88,16 @@ export default createStore({
         getperProduct(state, data) {
             state.product = data.data
 
+        },
+        freeShipping(state){
+
+            let sum = 0
+            for (let i = 0; i < state.cart.length; i++) {
+                sum = sum + state.cart[i].quantity
+            }
+            if(sum>=2){
+                state.shipping_fee = 0
+            }
         },
         uploadImg(state, data) {
 

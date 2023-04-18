@@ -127,7 +127,7 @@
               </tr>
               <tr>
                 <th>Phí vận chuyển</th>
-                <td>19.000 <span>&#8363;</span></td>
+                <td>{{shipping_fee.toLocaleString()}}<span>&#8363;</span></td>
               </tr>
               <tr>
                 <th>Tổng cộng</th>
@@ -175,9 +175,13 @@ export default {
   },
   computed: {
     ...mapGetters(["cartItems", "subTotal", "Total"]),
-    ...mapState(["quotes", "isPayment", "secure_url"]),
+    ...mapState(["quotes", "isPayment", "secure_url","shipping_fee"]),
 
 
+  },
+  mounted(){
+
+    this.$store.commit('freeShipping')
   },
   methods: {
     ...mapMutations(["releasedUploadImg"]),
